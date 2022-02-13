@@ -22,12 +22,15 @@ const renderPhoto = (photoData) => {
 
 class App extends React.Component {
   getPhoto() {
+    const infoBox = document.getElementById('info-box');
+    const aboutBox = document.getElementById('about-box');
+    infoBox.style.display = 'none';
+    aboutBox.style.display = 'none';
     console.log('getting photo...')
     fetch(url)
       .then(response => response.json())
       .then(data => {
         photoData = data[0];
-        console.log(photoData.media_type)
         renderPhoto(photoData);
       })
   }
