@@ -30,8 +30,10 @@ const renderPhoto = (photoData) => {
 class App extends React.Component {
   getPhoto() {
     const infoBox = document.getElementById('info-box');
+    const infoButton = document.getElementById('more-info');
     const aboutBox = document.getElementById('about-box');
     infoBox.style.display = 'none';
+    infoButton.innherHTML= 'More Info';
     aboutBox.style.display = 'none';
     console.log('getting photo...')
     fetch(url)
