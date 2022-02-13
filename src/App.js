@@ -4,20 +4,13 @@ import { renderData } from './helperFunctions';
 
 const apiKey = 'KHAQuppFd4IUa5bxBR2AMMi9mTqye3iqlWHkTpeu';
 const url = 'https://api.nasa.gov/planetary/apod?count=1&api_key=' + apiKey;
-let photoData;
 
 class App extends React.Component {
   getPhoto() {
     document.getElementById('info-box').style.display = 'none';
     document.getElementById('more-info').innerHTML= 'More Info';
     document.getElementById('about-box').style.display = 'none';
-    console.log('getting photo...')
-    fetch(url)
-      .then(response => response.json())
-      .then(data => {
-        photoData = data[0];
-        renderData(photoData);
-      })
+    renderData(url);
   }
   toggleInfo() {
     if (document.getElementById('info-box').style.display === 'none') {
