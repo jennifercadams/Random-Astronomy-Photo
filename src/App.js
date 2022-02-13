@@ -12,10 +12,12 @@ const convertToPermalink = (date) => {
 
 const renderPhoto = (photoData) => {
   let date = photoData.date;
+  let credit = photoData.copyright;
   let title = photoData.title;
   let description = photoData.explanation;
   let imgSrc = photoData.url;
   let permalink = convertToPermalink(date);
+  console.log(credit);
   document.getElementById('photo').src = imgSrc;
   document.getElementById('caption').innerHTML = title;
   document.getElementById('info-title').innerHTML = title;
@@ -25,6 +27,15 @@ const renderPhoto = (photoData) => {
   document.getElementById('description').innerHTML = description;
   document.getElementById('img-link').href = imgSrc;
   document.getElementById('apod-permalink').href = permalink;
+  if (credit === undefined) {
+    document.getElementById('credit').style.display = 'none';
+    document.getElementById('info-credit').style.display = 'none';
+  } else {
+    document.getElementById('credit').style.display = 'block';
+    document.getElementById('info-credit').style.display = 'block';
+    document.getElementById('credit').innerHTML = 'Credit: ' + credit;
+    document.getElementById('info-credit').innerHTML = 'Credit: ' + credit;
+  }
 }
 
 class App extends React.Component {
@@ -78,6 +89,7 @@ class App extends React.Component {
           <button onClick={this.toggleAbout}>About</button>
           <div id="info-box" style={{display: 'none'}}>
             <h2 id="info-title"></h2>
+            <p id="info-credit" style={{display: 'none'}}></p>
             <p id="info-date"></p>
             <p id="description" class="text-body"></p>
             <p><a id="img-link" href="" target="_blank">See full size photo</a></p>
@@ -97,6 +109,7 @@ class App extends React.Component {
           <figure>
             <img id="photo" src="" alt=""></img>
             <figcaption id="caption"></figcaption>
+            <p id="credit" style={{display: 'none'}}></p>
             <p id="date"></p>
           </figure>
         </header>
