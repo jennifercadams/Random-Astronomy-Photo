@@ -28,6 +28,7 @@ export const renderData = (url) => {
       let permalink = convertToPermalink(date);    
       renderImg(imgSrc).then((msg) => {
         console.log(msg);
+        document.getElementById('get-photo').innerHTML = 'New Photo';
         document.getElementById('caption').innerHTML = title;
         document.getElementById('info-title').innerHTML = title;
         document.getElementById('date').innerHTML = date;

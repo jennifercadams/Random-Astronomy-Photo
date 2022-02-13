@@ -36,7 +36,7 @@ class App extends React.Component {
       <div className="App">
         <header className="App-header">
           <h1>Random Astronomy Photo</h1>
-          <button onClick={this.getPhoto}>Get Photo</button>
+          <button id="get-photo" onClick={this.getPhoto}>Get Photo</button>
           <button id="more-info" onClick={this.toggleInfo}>More Info</button>
           <button onClick={this.toggleAbout}>About</button>
           <div id="info-box" style={{display: 'none'}}>
