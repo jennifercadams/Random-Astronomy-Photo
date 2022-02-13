@@ -5,11 +5,17 @@ const apiKey = 'KHAQuppFd4IUa5bxBR2AMMi9mTqye3iqlWHkTpeu';
 const url = 'https://api.nasa.gov/planetary/apod?count=1&api_key=' + apiKey;
 let photoData;
 
+const convertToPermalink = (date) => {
+  let formattedDate = date.substring(2).replace(/-/g, '');
+  return `https://apod.nasa.gov/apod/ap${formattedDate}.html`;
+};
+
 const renderPhoto = (photoData) => {
   let date = photoData.date;
   let title = photoData.title;
   let description = photoData.explanation;
   let imgSrc = photoData.url;
+  let permalink = convertToPermalink(date);
   document.getElementById('photo').src = imgSrc;
   document.getElementById('caption').innerHTML = title;
   document.getElementById('info-title').innerHTML = title;
@@ -17,7 +23,8 @@ const renderPhoto = (photoData) => {
   document.getElementById('info-date').innerHTML = date;
   document.getElementById('more-info').style.display = 'inline-block';
   document.getElementById('description').innerHTML = description;
-  document.getElementById('hdurl').href = imgSrc;
+  document.getElementById('img-link').href = imgSrc;
+  document.getElementById('apod-permalink').href = permalink;
 }
 
 class App extends React.Component {
@@ -71,7 +78,8 @@ class App extends React.Component {
             <h2 id="info-title"></h2>
             <p id="info-date"></p>
             <p id="description" class="text-body"></p>
-            <a id="hdurl" href="" target="_blank">See full size photo</a>
+            <p><a id="img-link" href="" target="_blank">See full size photo</a></p>
+            <p><a id="apod-permalink" href="" target="_blank">Permalink</a></p>
           </div>
           <div id="about-box" style={{display: 'none'}}>
             <h2>About This App</h2>
