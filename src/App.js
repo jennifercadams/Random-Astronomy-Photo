@@ -1,6 +1,6 @@
 import './App.css';
 import React from 'react';
-import { convertToPermalink, renderPhoto } from './helperFunctions';
+import { renderData } from './helperFunctions';
 
 const apiKey = 'KHAQuppFd4IUa5bxBR2AMMi9mTqye3iqlWHkTpeu';
 const url = 'https://api.nasa.gov/planetary/apod?count=1&api_key=' + apiKey;
@@ -8,43 +8,34 @@ let photoData;
 
 class App extends React.Component {
   getPhoto() {
-    const infoBox = document.getElementById('info-box');
-    const infoButton = document.getElementById('more-info');
-    const aboutBox = document.getElementById('about-box');
-    infoBox.style.display = 'none';
-    infoButton.innerHTML= 'More Info';
-    aboutBox.style.display = 'none';
+    document.getElementById('info-box').style.display = 'none';
+    document.getElementById('more-info').innerHTML= 'More Info';
+    document.getElementById('about-box').style.display = 'none';
     console.log('getting photo...')
     fetch(url)
       .then(response => response.json())
       .then(data => {
         photoData = data[0];
-        renderPhoto(photoData);
+        renderData(photoData);
       })
   }
   toggleInfo() {
-    const infoBox = document.getElementById('info-box');
-    const infoButton = document.getElementById('more-info');
-    const aboutBox = document.getElementById('about-box');
-    if (infoBox.style.display === 'none') {
-      infoButton.innerHTML = 'Hide Info';
-      infoBox.style.display = 'block';
-      aboutBox.style.display = 'none';
+    if (document.getElementById('info-box').style.display === 'none') {
+      document.getElementById('more-info').innerHTML = 'Hide Info';
+      document.getElementById('info-box').style.display = 'block';
+      document.getElementById('about-box').style.display = 'none';
     } else {
-      infoButton.innerHTML = 'More Info';
-      infoBox.style.display = 'none';
+      document.getElementById('more-info').innerHTML = 'More Info';
+      document.getElementById('info-box').style.display = 'none';
     }
   }
   toggleAbout() {
-    const infoBox = document.getElementById('info-box');
-    const infoButton = document.getElementById('more-info');
-    const aboutBox = document.getElementById('about-box');
-    if (aboutBox.style.display === 'none') {
-      aboutBox.style.display = 'block';
-      infoBox.style.display = 'none';
-      infoButton.innerHTML = 'More Info';
+    if (document.getElementById('about-box').style.display === 'none') {
+      document.getElementById('about-box').style.display = 'block';
+      document.getElementById('info-box').style.display = 'none';
+      document.getElementById('more-info').innerHTML = 'More Info';
     } else {
-      aboutBox.style.display = 'none';
+      document.getElementById('about-box').style.display = 'none';
     }
   }
   render() {
@@ -69,8 +60,8 @@ class App extends React.Component {
               <p>This app was made with love by jennsparkles. Data and images are from NASA's Astronomy Picture of the Day API.</p>
               <p>Learn more:</p>
               <ul>
-                <li><a href="https://apod.nasa.gov/apod/astropix.html">NASA Astronomy Picture of the Day (APOD)</a></li>
-                <li><a href="https://api.nasa.gov/">NASA API portal</a></li>
+                <li><a href="https://apod.nasa.gov/apod/astropix.html" target="_blank">NASA Astronomy Picture of the Day (APOD)</a></li>
+                <li><a href="https://api.nasa.gov/" target="_blank">NASA API portal</a></li>
               </ul>
             </div>
           </div>

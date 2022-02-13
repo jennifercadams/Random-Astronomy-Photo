@@ -1,16 +1,24 @@
-export const convertToPermalink = (date) => {
-    let formattedDate = date.substring(2).replace(/-/g, '');
-    return `https://apod.nasa.gov/apod/ap${formattedDate}.html`;
-  };
-  
-export const renderPhoto = (photoData) => {
-    let date = photoData.date;
-    let credit = photoData.copyright;
-    let title = photoData.title;
-    let description = photoData.explanation;
-    let imgSrc = photoData.url;
-    let permalink = convertToPermalink(date);
+const convertToPermalink = (date) => {
+  let formattedDate = date.substring(2).replace(/-/g, '');
+  return `https://apod.nasa.gov/apod/ap${formattedDate}.html`;
+};
+
+const renderImg = (imgSrc) => {
+  return new Promise((resolve) => {
     document.getElementById('photo').src = imgSrc;
+    document.getElementById('photo').onload = () => resolve('photo retrieved');
+  });
+};
+  
+export const renderData = (photoData) => {
+  let date = photoData.date;
+  let credit = photoData.copyright;
+  let title = photoData.title;
+  let description = photoData.explanation;
+  let imgSrc = photoData.url;
+  let permalink = convertToPermalink(date);    
+  renderImg(imgSrc).then((msg) => {
+    console.log(msg);
     document.getElementById('caption').innerHTML = title;
     document.getElementById('info-title').innerHTML = title;
     document.getElementById('date').innerHTML = date;
@@ -28,4 +36,5 @@ export const renderPhoto = (photoData) => {
       document.getElementById('credit').innerHTML = 'Credit: ' + credit;
       document.getElementById('info-credit').innerHTML = 'Credit: ' + credit;
     }
-  }
+  });
+};
