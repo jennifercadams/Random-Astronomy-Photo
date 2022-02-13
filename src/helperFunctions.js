@@ -10,7 +10,9 @@ const renderImg = (imgSrc) => {
     document.getElementById('photo').onerror = () => reject('trying again');
   });
 };
-  
+
+let retries = 0;
+
 export const renderData = (url) => {
   let photoData;
   console.log('getting photo...')
@@ -44,8 +46,13 @@ export const renderData = (url) => {
           document.getElementById('info-credit').innerHTML = 'Credit: ' + credit;
         }})
       .catch((reason) => {
-      console.log(reason);
-      renderData(url);
+        if (retries < 3) {
+          retries++;
+          console.log(reason + ' ' + retries);
+          renderData(url)
+        } else {
+          document.getElementById('img-container').innerHTML = 'Error: Can\'t get photo. Try again later.';
+        };
     })
   })
 };

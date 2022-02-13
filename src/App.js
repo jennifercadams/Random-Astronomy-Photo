@@ -58,7 +58,7 @@ class App extends React.Component {
               </ul>
             </div>
           </div>
-          <figure>
+          <figure id='img-container'>
             <img id="photo" src="" alt=""></img>
             <figcaption id="caption"></figcaption>
             <p id="credit" style={{display: 'none'}}></p>
