@@ -10,7 +10,6 @@ export const renderPhoto = (photoData) => {
     let description = photoData.explanation;
     let imgSrc = photoData.url;
     let permalink = convertToPermalink(date);
-    console.log(credit);
     document.getElementById('photo').src = imgSrc;
     document.getElementById('caption').innerHTML = title;
     document.getElementById('info-title').innerHTML = title;

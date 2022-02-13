@@ -70,7 +70,8 @@ figure {
   padding: 30px;
   margin: 25px 15%;
   width: 70%;
-  height: calc(60vh + 50px);
+  height: auto;
+  min-height: calc(60vh + 50px);
   position: absolute;
   right: -30px;
   background-color: hsla(217, 100%, 7%, 0.95);
@@ -87,8 +88,23 @@ figure {
   text-align: left;
 }
 
+@media (max-height: 690px) {
+  .App-header {
+    font-size: 16px;
+  }
+  #photo {
+    max-height: 50vh;
+  }
+  #info-box, #about-box {
+    min-height: calc(50vh + 50px);
+  }
+}
+
 @media (orientation: portrait) {
-  #info-box {
-    height: auto;
+  #info-box, #about-box {
+    padding: 20px;
+    margin: 25px 10%;
+    width: 80%;
+    right: -20px;
   }
 }
