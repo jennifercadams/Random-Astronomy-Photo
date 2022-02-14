@@ -38,12 +38,9 @@ export const renderData = (url) => {
         document.getElementById('img-link').href = imgSrc;
         document.getElementById('apod-permalink').href = permalink;
         if (credit === undefined) {
-          document.getElementById('credit').style.display = 'none';
           document.getElementById('info-credit').style.display = 'none';
         } else {
-          document.getElementById('credit').style.display = 'block';
           document.getElementById('info-credit').style.display = 'block';
-          document.getElementById('credit').innerHTML = 'Credit: ' + credit;
           document.getElementById('info-credit').innerHTML = 'Credit: ' + credit;
         }})
       .catch((reason) => {

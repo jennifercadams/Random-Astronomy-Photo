@@ -1,11 +1,10 @@
-.App-header {
-  margin: 0;
-  font-size: 18px;
-  color: #f0f0fa;
+header {
+  padding: 20px 0;
+  height: 130px;
 }
 
 h1 {
-  margin-top: 26px;
+  margin-bottom: 20px;
   font-size: 26px;
   text-align: center;
 }
@@ -16,10 +15,6 @@ h2 {
 
 figcaption, p, li, h2 {
   margin: 10px 0px;
-}
-
-p {
-  line-height: 1.5em;
 }
 
 a {
@@ -58,25 +53,31 @@ button:active {
 }
 
 #photo {
+  margin-bottom: 10px;
   max-width: 100%;
-  max-height: 60vh;
+  max-height: calc(100% - 66px);
 }
 
 figure {
-  margin: 25px 40px;
+  line-height: 1em;
+  margin: 10px 40px;
+  height: calc(100vh - 180px);
 }
 
 #info-box, #about-box {
   padding: 30px;
-  margin: 25px 15%;
+  margin: 5px 15%;
   width: 70%;
   height: auto;
-  min-height: calc(60vh + 50px);
+  min-height: calc(100vh - 170px);
   position: absolute;
-  right: -30px;
   background-color: hsla(217, 100%, 7%, 0.95);
   border-radius: 10px;
-  z-index: 10;
+  z-index: 1;
+}
+
+#info-box p, #about-box p {
+  line-height: 1.5em;
 }
 
 #description {
@@ -88,24 +89,27 @@ figure {
   text-align: left;
 }
 
+footer {
+  height: 30px;
+}
+
 @media (max-height: 690px) {
-  .App-header {
+  body {
     font-size: 16px;
   }
   #photo {
-    max-height: 50vh;
+    max-height: calc(100% - 52px);
   }
-  #info-box, #about-box {
-    min-height: calc(50vh + 50px);
+  footer {
+    height: 20px;
   }
 }
 
 @media (orientation: portrait) {
   #info-box, #about-box {
     padding: 20px;
-    margin: 25px 10%;
+    margin: 5px 10%;
     width: 80%;
-    right: -20px;
   }
 }
 
