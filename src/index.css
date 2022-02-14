@@ -10,7 +10,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #131445;
-  max-height: 100vh;
+  background-image: radial-gradient(#00009e, #131445);
+  height: 100vh;
   margin: 0;
   text-align: center;
 }
