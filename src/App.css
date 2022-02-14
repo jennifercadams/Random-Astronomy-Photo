@@ -9,6 +9,11 @@ h1 {
   text-align: center;
 }
 
+main {
+  display: grid;
+  grid-template-areas: "main";
+}
+
 h2 {
   font-size: 22px;
 }
@@ -62,6 +67,7 @@ figure {
   line-height: 1em;
   margin: 10px 40px;
   height: calc(100vh - 180px);
+  grid-area: main;
 }
 
 #info-box, #about-box {
@@ -70,9 +76,9 @@ figure {
   width: 70%;
   height: auto;
   min-height: calc(100vh - 170px);
-  position: absolute;
   background-color: hsla(217, 100%, 7%, 0.95);
   border-radius: 10px;
+  grid-area: main;
   z-index: 1;
 }
 

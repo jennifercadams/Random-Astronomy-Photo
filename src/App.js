@@ -40,30 +40,32 @@ class App extends React.Component {
           <button id="more-info" onClick={this.toggleInfo}>More Info</button>
           <button onClick={this.toggleAbout}>About</button>
         </header>
-        <div id="info-box" style={{display: 'none'}}>
-          <h2 id="info-title"></h2>
-          <p id="info-credit" style={{display: 'none'}}></p>
-          <p id="info-date"></p>
-          <p id="description" class="text-body"></p>
-          <p><a id="img-link" href="" target="_blank">See full size photo</a></p>
-          <p><a id="apod-permalink" href="" target="_blank">Permalink</a></p>
-        </div>
-        <div id="about-box" style={{display: 'none'}}>
-          <h2>About This App</h2>
-          <div class="text-body">
-            <p>This app was made with love by jennsparkles. Data and images are from NASA's Astronomy Picture of the Day API.</p>
-            <p>Learn more:</p>
-            <ul>
-              <li><a href="https://apod.nasa.gov/apod/astropix.html" target="_blank">NASA Astronomy Picture of the Day (APOD)</a></li>
-              <li><a href="https://api.nasa.gov/" target="_blank">NASA API portal</a></li>
-            </ul>
+        <main>
+          <div id="info-box" style={{display: 'none'}}>
+            <h2 id="info-title"></h2>
+            <p id="info-credit" style={{display: 'none'}}></p>
+            <p id="info-date"></p>
+            <p id="description" class="text-body"></p>
+            <p><a id="img-link" href="" target="_blank">See full size photo</a></p>
+            <p><a id="apod-permalink" href="" target="_blank">Permalink</a></p>
           </div>
-        </div>
-        <figure id='img-container'>
-          <img id="photo" src="" alt=""></img>
-          <figcaption id="caption"></figcaption>
-          <p id="date"></p>
+          <div id="about-box" style={{display: 'none'}}>
+            <h2>About This App</h2>
+            <div class="text-body">
+              <p>This app was made with love by jennsparkles. Data and images are from NASA's Astronomy Picture of the Day API.</p>
+              <p>Learn more:</p>
+              <ul>
+                <li><a href="https://apod.nasa.gov/apod/astropix.html" target="_blank">NASA Astronomy Picture of the Day (APOD)</a></li>
+                <li><a href="https://api.nasa.gov/" target="_blank">NASA API portal</a></li>
+              </ul>
+            </div>
+          </div>
+          <figure id='img-container'>
+            <img id="photo" src="" alt=""></img>
+            <figcaption id="caption"></figcaption>
+            <p id="date"></p>
         </figure>
+        </main>
         <footer></footer>
       </div>
     );
