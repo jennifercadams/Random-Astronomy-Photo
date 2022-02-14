@@ -64,7 +64,7 @@ class App extends React.Component {
             <img id="photo" src="" alt=""></img>
             <figcaption id="caption"></figcaption>
             <p id="date"></p>
-        </figure>
+          </figure>
         </main>
         <footer></footer>
       </div>
