@@ -28,7 +28,7 @@ class App extends React.Component {
 
   renderImg(src) {
     return new Promise((resolve, reject) => {
-      this.setState({imgSrc: src});
+      this.setState({imgSrc: src, videoSrc: ''});
       document.getElementById('photo').onload = () => resolve('success');
       document.getElementById('photo').onerror = () => reject('trying again');
     })
@@ -39,19 +39,25 @@ class App extends React.Component {
     fetch(url)
       .then(response => response.json())
       .then(jsonResponse => {
-        this.renderImg(jsonResponse[0].url)
-          .then((msg) => {
-            console.log(msg);
-            this.setState({data: jsonResponse[0]});
-          }).catch((reason) => {
-            if (this.state.retries < 3) {
-              this.setState(prev => ({retries: prev.retries + 1}));
-              console.log(reason + ' ' + this.state.retries);
-              this.getPhoto();
-            } else {
-              document.getElementById('media-container').innerHTML = 'Error: Can\'t get media. Try again later.';
-            }
-          })
+        console.log(jsonResponse[0].media_type)
+        if (jsonResponse[0].media_type === 'video') {
+          console.log('success');
+          this.setState({imgSrc: '', videoSrc: jsonResponse[0].url, data: jsonResponse[0]});
+        } else {
+          this.renderImg(jsonResponse[0].url)
+            .then((msg) => {
+              console.log(msg);
+              this.setState({data: jsonResponse[0]});
+            }).catch((reason) => {
+              if (this.state.retries < 3) {
+                this.setState(prev => ({retries: prev.retries + 1}));
+                console.log(reason + ' ' + this.state.retries);
+                this.getPhoto();
+              } else {
+                document.getElementById('media-container').innerHTML = 'Error: Can\'t get media. Try again later.';
+              }
+            })
+        }
       }).then(() => this.setState({media: true, info: false, about: false}))
     
   }
@@ -83,7 +89,11 @@ class App extends React.Component {
           info={this.state.info}
         />
         <main>
-          <InfoBox info={this.state.info} data={this.state.data} />
+          <InfoBox
+            info={this.state.info}
+            imgSrc={this.state.imgSrc}
+            data={this.state.data}
+          />
           <AboutBox about={this.state.about} />
           <MediaContainer
             imgSrc={this.state.imgSrc}
