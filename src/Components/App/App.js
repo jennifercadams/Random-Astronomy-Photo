@@ -1,11 +1,15 @@
 import './App.css';
 import React from 'react';
-import { renderData } from './helperFunctions';
+import { renderData } from '../../util/helperFunctions';
 
 const apiKey = 'KHAQuppFd4IUa5bxBR2AMMi9mTqye3iqlWHkTpeu';
 const url = 'https://api.nasa.gov/planetary/apod?count=1&api_key=' + apiKey;
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+    
+  }
   getPhoto() {
     document.getElementById('info-box').style.display = 'none';
     document.getElementById('more-info').innerHTML= 'More Info';
