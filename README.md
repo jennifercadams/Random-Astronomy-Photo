@@ -12,7 +12,7 @@ The APOD API occasionally returns a video instead of an image. I have now implem
 
 Improvements and features I am working on:
 
-* Add a "get APOD by date" feature that retrieves the photo for a given date.
+* Add a "get APOD by date" feature that retrieves the photo for a given date. Will have to decide how to handle when media type comes back as "other."
 * Add a feature that stores previously fetched photos in a gallery at the bottom of the page, with prev and next buttons to scroll through them.
 * Redesign header and buttons to look more modern and visually appealing.
 
