@@ -54,10 +54,6 @@ button:active {
   top: 2px;
 }
 
-#more-info {
-  display: none;
-}
-
 #photo {
   margin-bottom: 10px;
   max-width: 100%;

@@ -5,17 +5,22 @@ export default class InfoBox extends React.Component {
     super(props);
   }
 
+  convertToPermalink() {
+    let formattedDate = this.props.data.date.substring(2).replace(/-/g, '');
+    return `https://apod.nasa.gov/apod/ap${formattedDate}.html`;
+  }
+
   render() {
     return (
       <div id="info-box"
         style={this.props.info ? {display:'block'} : {display: 'none'}}
       >
-        <h2 id="info-title"></h2>
-        <p id="info-credit" style={{display: 'none'}}></p>
-        <p id="info-date"></p>
-        <p id="description" class="text-body"></p>
-        <p><a id="img-link" href="" target="_blank">See full size photo</a></p>
-        <p><a id="apod-permalink" href="" target="_blank">Permalink</a></p>
+        <h2 id="info-title">{this.props.data.title}</h2>
+        {this.props.data.copyright && <p id="info-credit">{this.props.data.copyright}</p>}
+        <p id="info-date">{this.props.data.date}</p>
+        <p id="description" class="text-body">{this.props.data.explanation}</p>
+        <p><a id="img-link" href={this.props.data.url} target="_blank">See full size photo</a></p>
+        <p><a id="apod-permalink" href={this.convertToPermalink()} target="_blank">Permalink</a></p>
       </div>
     )
   }
