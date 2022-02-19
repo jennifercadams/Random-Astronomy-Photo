@@ -4,7 +4,7 @@ import React from 'react';
 import Header from '../Header/Header';
 import InfoBox from '../InfoBox/InfoBox';
 import AboutBox from '../AboutBox/AboutBox';
-import ImageContainer from '../ImageContainer/ImageContainer';
+import MediaContainer from '../MediaContainer/MediaContainer';
 
 const apiKey = 'KHAQuppFd4IUa5bxBR2AMMi9mTqye3iqlWHkTpeu';
 const url = 'https://api.nasa.gov/planetary/apod?count=1&api_key=' + apiKey;
@@ -13,10 +13,11 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      photo: false,
+      media: false,
       info: false,
       about: false,
       imgSrc: '',
+      videoSrc: '',
       data: { date: '', title: '', explanation: '', url: '' },
       retries: 0
     }
@@ -28,13 +29,13 @@ class App extends React.Component {
   renderImg(src) {
     return new Promise((resolve, reject) => {
       this.setState({imgSrc: src});
-      document.getElementById('photo').onload = () => resolve('photo retrieved');
+      document.getElementById('photo').onload = () => resolve('success');
       document.getElementById('photo').onerror = () => reject('trying again');
     })
   }
 
   getPhoto() {
-    console.log('getting photo...');
+    console.log('getting media...');
     fetch(url)
       .then(response => response.json())
       .then(jsonResponse => {
@@ -48,10 +49,10 @@ class App extends React.Component {
               console.log(reason + ' ' + this.state.retries);
               this.getPhoto();
             } else {
-              document.getElementById('img-container').innerHTML = 'Error: Can\'t get photo. Try again later.';
+              document.getElementById('media-container').innerHTML = 'Error: Can\'t get media. Try again later.';
             }
           })
-      }).then(() => this.setState({photo: true, info: false, about: false}))
+      }).then(() => this.setState({media: true, info: false, about: false}))
     
   }
 
@@ -78,14 +79,15 @@ class App extends React.Component {
           getPhoto={this.getPhoto}
           toggleInfo={this.toggleInfo}
           toggleAbout={this.toggleAbout}
-          photo={this.state.photo}
+          media={this.state.media}
           info={this.state.info}
         />
         <main>
           <InfoBox info={this.state.info} data={this.state.data} />
           <AboutBox about={this.state.about} />
-          <ImageContainer
+          <MediaContainer
             imgSrc={this.state.imgSrc}
+            videoSrc={this.state.videoSrc}
             data={this.state.data}
           />
         </main>

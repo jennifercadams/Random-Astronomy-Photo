@@ -54,17 +54,22 @@ button:active {
   top: 2px;
 }
 
+figure {
+  line-height: 1em;
+  margin: 10px 40px;
+  height: calc(100vh - 180px);
+  grid-area: main;
+}
+
 #photo {
   margin-bottom: 10px;
   max-width: 100%;
   max-height: calc(100% - 66px);
 }
 
-figure {
-  line-height: 1em;
-  margin: 10px 40px;
-  height: calc(100vh - 180px);
-  grid-area: main;
+#video {
+  width: calc((100vh - 226px) * 16 / 9);
+  height: calc(100vh - 226px);
 }
 
 #info-box, #about-box {
@@ -113,6 +118,11 @@ footer {
     padding: 20px;
     margin: 5px 10%;
     width: 80%;
+  }
+
+  #video {
+    width: calc(100vw - 80px);
+    height: calc((100vw - 80px) / 16 * 9);
   }
 }
 
