@@ -68,8 +68,8 @@ figure {
 }
 
 #video {
-  width: calc((100vh - 226px) * 16 / 9);
-  height: calc(100vh - 226px);
+  width: calc((100vh - 236px) * 16 / 9);
+  height: calc(100vh - 236px);
 }
 
 #info-box, #about-box {
