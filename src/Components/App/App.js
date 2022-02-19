@@ -7,7 +7,8 @@ import AboutBox from '../AboutBox/AboutBox';
 import MediaContainer from '../MediaContainer/MediaContainer';
 
 const apiKey = 'KHAQuppFd4IUa5bxBR2AMMi9mTqye3iqlWHkTpeu';
-const url = 'https://api.nasa.gov/planetary/apod?count=1&api_key=' + apiKey;
+const fetchRandom = `https://api.nasa.gov/planetary/apod?count=1&api_key=${apiKey}`;
+const fetchByDate = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}&date=`;
 
 class App extends React.Component {
   constructor(props) {
@@ -21,7 +22,8 @@ class App extends React.Component {
       data: { date: '', title: '', explanation: '', url: '' },
       retries: 0
     }
-    this.getPhoto = this.getPhoto.bind(this);
+    this.getRandom = this.getRandom.bind(this);
+    this.getByDate = this.getByDate.bind(this);
     this.toggleInfo = this.toggleInfo.bind(this);
     this.toggleAbout = this.toggleAbout.bind(this);
   }
@@ -29,37 +31,52 @@ class App extends React.Component {
   renderImg(src) {
     return new Promise((resolve, reject) => {
       this.setState({imgSrc: src, videoSrc: ''});
-      document.getElementById('photo').onload = () => resolve('success');
-      document.getElementById('photo').onerror = () => reject('trying again');
+      document.getElementById('photo').onload = () => resolve();
+      document.getElementById('photo').onerror = () => reject();
     })
   }
 
-  getPhoto() {
-    console.log('getting media...');
-    fetch(url)
+  retry() {
+    if (this.state.retries < 3) {
+      this.setState(prev => ({retries: prev.retries + 1}));
+      this.getRandom();
+    } else {
+      document.getElementById('media-container').innerHTML = 'Error: Can\'t get media. Try again later.';
+    }
+  }
+
+  getRandom() {
+    fetch(fetchRandom)
       .then(response => response.json())
       .then(jsonResponse => {
-        console.log(jsonResponse[0].media_type)
-        if (jsonResponse[0].media_type === 'video') {
-          console.log('success');
-          this.setState({imgSrc: '', videoSrc: jsonResponse[0].url, data: jsonResponse[0]});
+        const data = jsonResponse[0];
+        if (data.media_type === 'video') {
+          this.setState({imgSrc: '', videoSrc: data.url, data: data});
         } else {
-          this.renderImg(jsonResponse[0].url)
-            .then((msg) => {
-              console.log(msg);
-              this.setState({data: jsonResponse[0]});
-            }).catch((reason) => {
-              if (this.state.retries < 3) {
-                this.setState(prev => ({retries: prev.retries + 1}));
-                console.log(reason + ' ' + this.state.retries);
-                this.getPhoto();
-              } else {
-                document.getElementById('media-container').innerHTML = 'Error: Can\'t get media. Try again later.';
-              }
-            })
+          this.renderImg(data.url)
+            .then(() => this.setState({data: data}))
+            .catch(() => this.retry())
         }
       }).then(() => this.setState({media: true, info: false, about: false}))
     
+  }
+
+  getByDate(date) {
+    const url = fetchByDate + date;
+    fetch(url)
+      .then(response => response.json())
+      .then(jsonResponse => {
+        const data = jsonResponse[0];
+        if (data.media_type === 'video') {
+          this.setState({imgSrc: '', videoSrc: data.url, data: data});
+        } else if (data.media_type === 'image') {
+          this.renderImg(data.url)
+            .then(() => this.setState({data: data}))
+        } else {
+          document.getElementById('media-container').innerHTML = 'Media unavailable. Click "More Info" for permalink to this date\'s APOD page.';
+          this.setState({data: data})
+        }
+      })
   }
 
   toggleInfo() {
@@ -82,7 +99,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <Header
-          getPhoto={this.getPhoto}
+          getRandom={this.getRandom}
           toggleInfo={this.toggleInfo}
           toggleAbout={this.toggleAbout}
           media={this.state.media}

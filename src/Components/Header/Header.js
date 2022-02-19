@@ -9,7 +9,7 @@ export default class Header extends React.Component {
     return (
       <header className="App-header">
         <h1>Random Astronomy Photo</h1>
-        <button id="get-photo" onClick={this.props.getPhoto}>
+        <button id="get-photo" onClick={this.props.getRandom}>
           {this.props.media ? 'New Photo' : 'Get Photo'}
         </button>
         {this.props.media && <button id="more-info" onClick={this.props.toggleInfo}>
