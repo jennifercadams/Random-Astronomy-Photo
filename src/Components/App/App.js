@@ -15,35 +15,29 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      
+      info: false,
+      about: false
     }
     this.getPhoto = this.getPhoto.bind(this);
     this.toggleInfo = this.toggleInfo.bind(this);
     this.toggleAbout = this.toggleAbout.bind(this);
   }
   getPhoto() {
-    document.getElementById('info-box').style.display = 'none';
-    document.getElementById('more-info').innerHTML= 'More Info';
-    document.getElementById('about-box').style.display = 'none';
+    this.setState({info: false, about: false})
     renderData(url);
   }
   toggleInfo() {
-    if (document.getElementById('info-box').style.display === 'none') {
-      document.getElementById('more-info').innerHTML = 'Hide Info';
-      document.getElementById('info-box').style.display = 'block';
-      document.getElementById('about-box').style.display = 'none';
+    if (!this.state.info) {
+      this.setState({info: true, about: false})
     } else {
-      document.getElementById('more-info').innerHTML = 'More Info';
-      document.getElementById('info-box').style.display = 'none';
+      this.setState({info: false})
     }
   }
   toggleAbout() {
-    if (document.getElementById('about-box').style.display === 'none') {
-      document.getElementById('about-box').style.display = 'block';
-      document.getElementById('info-box').style.display = 'none';
-      document.getElementById('more-info').innerHTML = 'More Info';
+    if (!this.state.about) {
+      this.setState({info: false, about: true})
     } else {
-      document.getElementById('about-box').style.display = 'none';
+      this.setState({about: false})
     }
   }
   render() {
@@ -53,10 +47,11 @@ class App extends React.Component {
           getPhoto={this.getPhoto}
           toggleInfo={this.toggleInfo}
           toggleAbout={this.toggleAbout}
+          info={this.state.info}
         />
         <main>
-          <InfoBox />
-          <AboutBox />
+          <InfoBox info={this.state.info} />
+          <AboutBox about={this.state.about} />
           <ImageContainer />
         </main>
         <footer></footer>

@@ -1,9 +1,15 @@
 import React from 'react';
 
 export default class InfoBox extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
   render() {
     return (
-      <div id="info-box" style={{display: 'none'}}>
+      <div id="info-box"
+        style={this.props.info ? {display:'block'} : {display: 'none'}}
+      >
         <h2 id="info-title"></h2>
         <p id="info-credit" style={{display: 'none'}}></p>
         <p id="info-date"></p>

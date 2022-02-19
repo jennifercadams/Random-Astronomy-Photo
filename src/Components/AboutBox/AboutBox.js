@@ -1,9 +1,15 @@
 import React from 'react';
 
 export default class AboutBox extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
   render() {
     return (
-      <div id="about-box" style={{display: 'none'}}>
+      <div id="about-box"
+        style={this.props.about ? {display:'block'} : {display: 'none'}}
+      >
         <h2>About This App</h2>
         <div class="text-body">
           <p>This app was made with love by jennsparkles. Data and images are from NASA's Astronomy Picture of the Day API.</p>
