@@ -20,10 +20,11 @@ main {
 
 h2 {
   font-size: 22px;
+  margin: 10px 0;
 }
 
-figcaption, p, li, h2 {
-  margin: 10px 0px;
+figcaption, p, li {
+  margin: 10px 0;
 }
 
 a {
@@ -44,7 +45,7 @@ button {
   margin: 0 10px;
   border-radius: 5px;
   border: none;
-  box-shadow: 0px 4px #acaccc;
+  box-shadow: 0 4px #acaccc;
   position: relative;
 }
 
@@ -53,7 +54,7 @@ button:hover {
 }
 
 button:active {
-  box-shadow: 0px 2px #acaccc;
+  box-shadow: 0 2px #acaccc;
   top: 2px;
 }
 
@@ -81,6 +82,7 @@ figure {
   width: 70%;
   height: auto;
   min-height: calc(100vh - 170px);
+  background-color: #000e24;
   background-color: hsla(217, 100%, 7%, 0.95);
   border-radius: 10px;
   grid-area: main;
