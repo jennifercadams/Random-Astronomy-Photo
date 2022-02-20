@@ -2,6 +2,7 @@ import './App.css';
 import React from 'react';
 
 import Header from '../Header/Header';
+import Buttons from '../Buttons/Buttons';
 import InfoBox from '../InfoBox/InfoBox';
 import AboutBox from '../AboutBox/AboutBox';
 import MediaContainer from '../MediaContainer/MediaContainer';
@@ -98,12 +99,13 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <Header
+        <Header />
+        <Buttons
           getRandom={this.getRandom}
           toggleInfo={this.toggleInfo}
           toggleAbout={this.toggleAbout}
           media={this.state.media}
-          info={this.state.info}
+          info={this.state.info}        
         />
         <main>
           <InfoBox
