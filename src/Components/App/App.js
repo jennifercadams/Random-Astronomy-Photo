@@ -100,12 +100,14 @@ class App extends React.Component {
         />
         <main>
           <InfoBox
+            toggleBox={this.toggleBox}
             info={this.state.info}
             imgSrc={this.state.imgSrc}
             data={this.state.data}
           />
           <AboutBox about={this.state.about} />
           <MediaContainer
+            toggleBox={this.toggleBox}
             imgSrc={this.state.imgSrc}
             videoSrc={this.state.videoSrc}
             data={this.state.data}

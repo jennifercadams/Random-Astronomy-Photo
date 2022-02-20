@@ -12,7 +12,7 @@ export default class InfoBox extends React.Component {
 
   render() {
     return (
-      <div id="info-box"
+      <div id="info-box" onClick={() => this.props.toggleBox('info')}
         style={this.props.info ? {display:'block'} : {display: 'none'}}
       >
         <h2 id="info-title">{this.props.data.title}</h2>
