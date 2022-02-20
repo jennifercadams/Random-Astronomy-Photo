@@ -25,8 +25,7 @@ class App extends React.Component {
     }
     this.getRandom = this.getRandom.bind(this);
     this.getByDate = this.getByDate.bind(this);
-    this.toggleInfo = this.toggleInfo.bind(this);
-    this.toggleAbout = this.toggleAbout.bind(this);
+    this.toggleBox = this.toggleBox.bind(this);
   }
 
   renderImg(src) {
@@ -80,19 +79,12 @@ class App extends React.Component {
       })
   }
 
-  toggleInfo() {
-    if (!this.state.info) {
-      this.setState({info: true, about: false})
+  toggleBox(targetBox) {
+    const otherBox = targetBox === 'info' ? 'about' : 'info';
+    if (!this.state[targetBox]) {
+      this.setState({[targetBox]: true, [otherBox]: false})
     } else {
-      this.setState({info: false})
-    }
-  }
-
-  toggleAbout() {
-    if (!this.state.about) {
-      this.setState({info: false, about: true})
-    } else {
-      this.setState({about: false})
+      this.setState({[targetBox]: false})
     }
   }
 
@@ -102,8 +94,7 @@ class App extends React.Component {
         <Header />
         <Buttons
           getRandom={this.getRandom}
-          toggleInfo={this.toggleInfo}
-          toggleAbout={this.toggleAbout}
+          toggleBox={this.toggleBox}
           media={this.state.media}
           info={this.state.info}        
         />
