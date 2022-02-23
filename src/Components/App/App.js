@@ -1,12 +1,10 @@
 import './App.css';
 import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 
 import Header from '../Header/Header';
-import Buttons from '../Buttons/Buttons';
-import InfoBox from '../InfoBox/InfoBox';
-import AboutBox from '../AboutBox/AboutBox';
-import MediaContainer from '../MediaContainer/MediaContainer';
+import RandomPage from '../../Pages/RandomPage/RandomPage';
+import AboutPage from '../../Pages/AboutPage/AboutPage';
 
 const apiKey = 'KHAQuppFd4IUa5bxBR2AMMi9mTqye3iqlWHkTpeu';
 const fetchRandom = `https://api.nasa.gov/planetary/apod?count=1&api_key=${apiKey}`;
@@ -18,7 +16,6 @@ class App extends React.Component {
     this.state = {
       media: false,
       info: false,
-      about: false,
       imgSrc: '',
       videoSrc: '',
       data: { date: '', title: '', explanation: '', url: '' },
@@ -26,7 +23,7 @@ class App extends React.Component {
     }
     this.getRandom = this.getRandom.bind(this);
     this.getByDate = this.getByDate.bind(this);
-    this.toggleBox = this.toggleBox.bind(this);
+    this.toggleInfo = this.toggleInfo.bind(this);
   }
 
   renderImg(src) {
@@ -58,8 +55,7 @@ class App extends React.Component {
             .then(() => this.setState({data: data}))
             .catch(() => this.retry())
         }
-      }).then(() => this.setState({media: true, info: false, about: false}))
-    
+      }).then(() => this.setState({media: true, info: false}))
   }
 
   getByDate(date) {
@@ -80,40 +76,28 @@ class App extends React.Component {
       })
   }
 
-  toggleBox(targetBox) {
-    const otherBox = targetBox === 'info' ? 'about' : 'info';
-    if (!this.state[targetBox]) {
-      this.setState({[targetBox]: true, [otherBox]: false})
-    } else {
-      this.setState({[targetBox]: false})
-    }
+  toggleInfo() {
+    this.setState(state => ({info: !state.info}))
   }
 
   render() {
     return (
       <div className="App">
         <Header />
-        <main>
-          <InfoBox
-            toggleBox={this.toggleBox}
-            info={this.state.info}
-            imgSrc={this.state.imgSrc}
-            data={this.state.data}
-          />
-          <AboutBox about={this.state.about} />
-          <MediaContainer
-            toggleBox={this.toggleBox}
-            imgSrc={this.state.imgSrc}
-            videoSrc={this.state.videoSrc}
-            data={this.state.data}
-          />
-          <Buttons
-            getRandom={this.getRandom}
-            toggleBox={this.toggleBox}
-            media={this.state.media}
-            info={this.state.info}        
-          />
-        </main>
+        <Routes>
+          <Route path="/Random-Astronomy-Photo/random" element={
+            <RandomPage
+              getRandom={this.getRandom}
+              toggleInfo={this.toggleInfo}
+              media={this.state.media}
+              info={this.state.info}
+              imgSrc={this.state.imgSrc}
+              videoSrc={this.state.videoSrc}
+              data={this.state.data}
+            />
+          } />
+          <Route path="/Random-Astronomy-Photo/about" element={<AboutPage />} />
+        </Routes>
         <footer></footer>
       </div>
     );

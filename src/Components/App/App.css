@@ -20,6 +20,12 @@ main {
   grid-template-areas: "main";
 }
 
+#about-page {
+  max-width: 900px;
+  text-align: left;
+  margin: 20px 40px;
+}
+
 figure {
   line-height: 1em;
   margin: 20px 40px;

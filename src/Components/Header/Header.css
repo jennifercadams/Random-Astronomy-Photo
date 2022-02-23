@@ -14,15 +14,19 @@ h1 {
   color: #c8bbf2;
 }
 
-ul {
+header ul {
   display: flex;
   padding-left: 20px;
 }
 
-li {
+header li {
   list-style-type: none;
   padding: 5px 16px;
   margin: 0;
+}
+
+header a {
+  text-decoration: none;
 }
 
 @media (max-width: 620px) {
@@ -31,7 +35,7 @@ li {
     display: block;
   }
   
-  ul {
+  header ul {
     padding: 0;
   }
 
