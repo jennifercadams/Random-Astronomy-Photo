@@ -27,10 +27,17 @@ export default class RandomPage extends React.Component {
         <Buttons
           getRandom={this.props.getRandom}
           toggleInfo={this.props.toggleInfo}
-          media={this.props.media}
           info={this.props.info}        
         />
       </main>
     )
+  }
+
+  componentDidMount() {
+    this.props.getRandom();
+  }
+
+  componentWillUnmount() {
+    this.props.reset();
   }
 }

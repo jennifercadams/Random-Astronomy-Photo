@@ -14,7 +14,6 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      media: false,
       info: false,
       imgSrc: '',
       videoSrc: '',
@@ -24,6 +23,7 @@ class App extends React.Component {
     this.getRandom = this.getRandom.bind(this);
     this.getByDate = this.getByDate.bind(this);
     this.toggleInfo = this.toggleInfo.bind(this);
+    this.reset = this.reset.bind(this);
   }
 
   renderImg(src) {
@@ -55,7 +55,7 @@ class App extends React.Component {
             .then(() => this.setState({data: data}))
             .catch(() => this.retry())
         }
-      }).then(() => this.setState({media: true, info: false}))
+      }).then(() => this.setState({info: false}))
   }
 
   getByDate(date) {
@@ -80,22 +80,34 @@ class App extends React.Component {
     this.setState(state => ({info: !state.info}))
   }
 
+  reset() {
+    this.setState({
+      info: false,
+      imgSrc: '',
+      videoSrc: '',
+      data: { date: '', title: '', explanation: '', url: '' },
+      retries: 0
+    })
+  }
+
   render() {
+    const randomPage = (
+      <RandomPage
+        getRandom={this.getRandom}
+        toggleInfo={this.toggleInfo}
+        reset={this.reset}
+        info={this.state.info}
+        imgSrc={this.state.imgSrc}
+        videoSrc={this.state.videoSrc}
+        data={this.state.data}
+      />
+    );
     return (
       <div className="App">
         <Header />
         <Routes>
-          <Route path="/Random-Astronomy-Photo/random" element={
-            <RandomPage
-              getRandom={this.getRandom}
-              toggleInfo={this.toggleInfo}
-              media={this.state.media}
-              info={this.state.info}
-              imgSrc={this.state.imgSrc}
-              videoSrc={this.state.videoSrc}
-              data={this.state.data}
-            />
-          } />
+          <Route path="/Random-Astronomy-Photo/" element={randomPage} />
+          <Route path="/Random-Astronomy-Photo/random" element={randomPage} />
           <Route path="/Random-Astronomy-Photo/about" element={<AboutPage />} />
         </Routes>
         <footer></footer>

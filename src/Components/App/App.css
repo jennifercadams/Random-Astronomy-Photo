@@ -44,9 +44,9 @@ figure {
   height: calc(100vh - 236px);
 }
 
-#info-box, #about-box {
+#info-box {
   padding: 30px;
-  margin: 20px 15%;
+  margin: 18px 15%;
   width: 70%;
   height: auto;
   min-height: calc(100vh - 165px);
@@ -57,7 +57,7 @@ figure {
   z-index: 1;
 }
 
-#info-box p, #about-box p {
+#info-box p {
   line-height: 1.5em;
 }
 
