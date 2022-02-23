@@ -1,5 +1,6 @@
 import './App.css';
 import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 import Header from '../Header/Header';
 import Buttons from '../Buttons/Buttons';
