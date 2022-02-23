@@ -6,11 +6,11 @@
 body {
   font-family: Montserrat, sans-serif;
   font-size: 18px;
-  color: #f0f0fa;
+  color: #f5f0fa;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #131445;
-  background-image: radial-gradient(#00009e, #131445);
+  background-color: #28004f;
+  background-image: radial-gradient(#5500ab, #28004f);
   height: 100vh;
   margin: 0;
   text-align: center;

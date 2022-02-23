@@ -92,12 +92,6 @@ class App extends React.Component {
     return (
       <div className="App">
         <Header />
-        <Buttons
-          getRandom={this.getRandom}
-          toggleBox={this.toggleBox}
-          media={this.state.media}
-          info={this.state.info}        
-        />
         <main>
           <InfoBox
             toggleBox={this.toggleBox}
@@ -111,6 +105,12 @@ class App extends React.Component {
             imgSrc={this.state.imgSrc}
             videoSrc={this.state.videoSrc}
             data={this.state.data}
+          />
+          <Buttons
+            getRandom={this.getRandom}
+            toggleBox={this.toggleBox}
+            media={this.state.media}
+            info={this.state.info}        
           />
         </main>
         <footer></footer>

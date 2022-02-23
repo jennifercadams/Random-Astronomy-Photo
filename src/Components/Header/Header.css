@@ -1,0 +1,38 @@
+header {
+  height: 52px;
+  padding: 10px;
+  display: flex;
+  align-items: baseline;
+  background-color: #28004f;
+  box-shadow: 0 2px 4px black;
+}
+
+h1 {
+  font-size: 22px;
+  font-weight: 500;
+  text-align: left;
+  color: #c8bbf2;
+}
+
+ul {
+  display: flex;
+  padding-left: 20px;
+}
+
+li {
+  list-style-type: none;
+  padding: 5px 16px;
+  margin: 0;
+}
+
+@media (max-width: 620px) {
+  header {
+    height: 77px;
+    display: block;
+  }
+  
+  ul {
+    padding: 0;
+  }
+
+}
