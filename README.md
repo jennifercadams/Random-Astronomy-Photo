@@ -2,13 +2,14 @@
 
 Random Astronomy Photo is a web app that uses NASA's Astronomy Photo of the Day (APOD) API to display random astronomy photos and cool facts about them.
 
-The app was built using JavaScript, React, HTML, and CSS.
+The app was built using JavaScript, React, React Router, HTML, and CSS.
 
 ## Updates
 
-The APOD API occasionally returns a video instead of an image. I have now implemented support for videos.
+Improvements and features I have completed:
 
-I've added a "get by date" page that allows the user to fetch an APOD image by date.
+* Implemented support for videos.
+* Added "get by date" page that allows the user to fetch APOD media by date.
 
 ## Next Steps
 
@@ -16,6 +17,11 @@ Improvements and features I am working on:
 
 * Add a feature that stores previously fetched photos in a gallery at the bottom of the page, with prev and next buttons to scroll through them.
 * Redesign buttons to look more modern and visually appealing.
+* Handle "apod.nasa.gov refused to connect errors" with more helpful error message redirecting user to APOD page for that date.
+
+Known issues:
+
+* When the user clicks over to the By Date page before the Random page is finished fetching data, the data is partially loaded by the By Date page instead. I would like to implement a function that aborts the fetch operation when the user clicks away before it is completed.
 
 ## Create React App
 
