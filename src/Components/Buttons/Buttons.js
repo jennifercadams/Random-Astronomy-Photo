@@ -5,16 +5,8 @@ export default class Buttons extends React.Component {
   constructor(props) {
     super(props);
     this.state = {date: ''}
-    this.getTodayString = this.getTodayString.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  getTodayString() {
-    const [month, day, year] = new Date()
-      .toLocaleDateString("en-US", {timeZone: 'America/New_York'})
-      .split("/");
-    return `${year}-${month.padStart(2, "0")}-${day.padStart(2, "0")}`;
   }
 
   handleChange(e) {
@@ -37,7 +29,7 @@ export default class Buttons extends React.Component {
               id="date-input"
               value={this.state.date}
               min="1995-06-16"
-              max={this.getTodayString()}
+              max={this.props.getTodayString()}
               onChange={this.handleChange}
               required
             />

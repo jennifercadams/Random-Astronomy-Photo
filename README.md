@@ -19,10 +19,6 @@ Improvements and features I am working on:
 * Redesign buttons to look more modern and visually appealing.
 * Handle "apod.nasa.gov refused to connect errors" with more helpful error message redirecting user to APOD page for that date.
 
-Known issues:
-
-* When the user clicks over to the By Date page before the Random page is finished fetching data, the data is partially loaded by the By Date page instead. I would like to implement a function that aborts the fetch operation when the user clicks away before it is completed.
-
 ## Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
