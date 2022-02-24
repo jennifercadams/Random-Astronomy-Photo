@@ -59,8 +59,8 @@ figure {
 }
 
 .video {
-  width: calc((100vh - 236px) * 16 / 9);
-  height: calc(100vh - 236px);
+  width: calc((100vh - 241px) * 16 / 9);
+  height: calc(100vh - 241px);
 }
 
 #video-byDate {
