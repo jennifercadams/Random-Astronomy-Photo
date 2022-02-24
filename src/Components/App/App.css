@@ -28,6 +28,19 @@ main {
   margin: 20px 40px;
 }
 
+#about-page p {
+  padding-left: 10px;
+}
+
+#about-page ul {
+  padding-left: 50px;
+}
+
+#about-page cite {
+  padding-left: 30px;
+  margin-bottom: 10px;
+}
+
 figure {
   line-height: 1em;
   margin: 20px 40px;
