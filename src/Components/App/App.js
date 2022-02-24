@@ -40,7 +40,7 @@ class App extends React.Component {
       this.setState(prev => ({retries: prev.retries + 1}));
       this.getRandom();
     } else {
-      document.getElementById('media-container').innerHTML = 'Error: Can\'t get media. Try again later.';
+      document.getElementById('media-container-random').innerHTML = 'Error: Can\'t get media. Try again later.';
     }
   }
 
@@ -71,7 +71,7 @@ class App extends React.Component {
           this.renderImg(data.url)
             .then(() => this.setState({data: data}))
         } else {
-          document.getElementById('media-container').innerHTML = 'Media unavailable. Click "More Info" for permalink to this date\'s APOD page.';
+          document.getElementById('media-container-byDate').innerHTML = 'Media unavailable. Click "More Info" for permalink to this date\'s APOD page.';
           this.setState({data: data})
         }
       }).then(() => this.setState({info: false}))
