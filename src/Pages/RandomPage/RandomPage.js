@@ -12,6 +12,11 @@ export default class RandomPage extends React.Component {
   render() {
     return (
       <main>
+        <Buttons
+          getRandom={this.props.getRandom}
+          toggleInfo={this.props.toggleInfo}
+          info={this.props.info}        
+        />
         <InfoBox
           toggleInfo={this.props.toggleInfo}
           info={this.props.info}
@@ -23,11 +28,6 @@ export default class RandomPage extends React.Component {
           imgSrc={this.props.imgSrc}
           videoSrc={this.props.videoSrc}
           data={this.props.data}
-        />
-        <Buttons
-          getRandom={this.props.getRandom}
-          toggleInfo={this.props.toggleInfo}
-          info={this.props.info}        
         />
       </main>
     )

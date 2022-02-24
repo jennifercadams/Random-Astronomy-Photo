@@ -17,7 +17,9 @@ a:hover {
 
 main {
   display: grid;
-  grid-template-areas: "main";
+  grid-template-areas: 
+    "buttons"
+    "main";
 }
 
 #about-page {
@@ -29,7 +31,7 @@ main {
 figure {
   line-height: 1em;
   margin: 20px 40px;
-  height: calc(100vh - 165px);
+  height: calc(100vh - 185px);
   grid-area: main;
 }
 
@@ -49,7 +51,7 @@ figure {
   margin: 18px 15%;
   width: 70%;
   height: auto;
-  min-height: calc(100vh - 165px);
+  min-height: calc(100vh - 185px);
   background-color: #000e24;
   background-color: hsla(217, 100%, 7%, 0.95);
   border-radius: 10px;
@@ -87,9 +89,9 @@ footer {
 }
 
 @media (orientation: portrait) {
-  #info-box, #about-box {
+  #info-box {
     padding: 20px;
-    margin: 5px 10%;
+    margin: 18px 10%;
     width: 80%;
   }
 
