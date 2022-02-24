@@ -81,12 +81,12 @@ figure {
   z-index: 1;
 }
 
-#info-byDate {
-  min-height: calc(100vh - 218px);
+.info-box p {
+  line-height: 1.5em;
 }
 
-#info-box p {
-  line-height: 1.5em;
+#info-byDate {
+  min-height: calc(100vh - 218px);
 }
 
 #description {
@@ -114,14 +114,21 @@ footer {
   }
 }
 
+@media (max-width: 450px) {
+  #more-info {
+    display: block;
+    margin: 10px auto 0;
+  }
+}
+
 @media (orientation: portrait) {
-  #info-box {
+  .info-box {
     padding: 20px;
     margin: 18px 10%;
     width: 80%;
   }
 
-  #video {
+  .video, #video-byDate {
     width: calc(100vw - 80px);
     height: calc((100vw - 80px) / 16 * 9);
   }
