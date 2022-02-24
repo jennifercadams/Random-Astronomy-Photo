@@ -45,15 +45,16 @@ class App extends React.Component {
   }
 
   getRandom() {
+    this.reset();
     fetch(fetchRandom)
       .then(response => response.json())
       .then(jsonResponse => {
         const data = jsonResponse[0];
+        this.setState({data: data});
         if (data.media_type === 'video') {
-          this.setState({imgSrc: '', videoSrc: data.url, data: data});
+          this.setState({imgSrc: '', videoSrc: data.url});
         } else {
           this.renderImg(data.url)
-            .then(() => this.setState({data: data}))
             .catch(() => this.retry())
         }
       }).then(() => this.setState({info: false}))
@@ -61,18 +62,18 @@ class App extends React.Component {
 
   getByDate(date) {
     const url = fetchByDate + date;
+    this.reset();
     fetch(url)
       .then(response => response.json())
       .then(jsonResponse => {
         const data = jsonResponse;
+        this.setState({data: data})
         if (data.media_type === 'video') {
-          this.setState({imgSrc: '', videoSrc: data.url, data: data});
+          this.setState({imgSrc: '', videoSrc: data.url});
         } else if (data.media_type === 'image') {
-          this.renderImg(data.url)
-            .then(() => this.setState({data: data}))
+          this.renderImg(data.url);
         } else {
           document.getElementById('media-container-byDate').innerHTML = 'Media unavailable. Click "More Info" for permalink to this date\'s APOD page.';
-          this.setState({data: data})
         }
       }).then(() => this.setState({info: false}))
   }
