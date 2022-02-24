@@ -115,7 +115,7 @@ footer {
 }
 
 @media (max-width: 450px) {
-  #more-info {
+  #more-info-byDate {
     display: block;
     margin: 10px auto 0;
   }

@@ -36,7 +36,7 @@ export default class Buttons extends React.Component {
             <input type="submit" id="submit" value="Get Photo" />
           </form>
         </>}
-        <button id="more-info" onClick={this.props.toggleInfo}>
+        <button className="more-info" id={`more-info-${this.props.page}`} onClick={this.props.toggleInfo}>
           {this.props.info ? 'Hide Info' : 'More Info'}
         </button>
       </div>

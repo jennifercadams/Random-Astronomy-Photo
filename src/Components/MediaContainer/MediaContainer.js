@@ -15,8 +15,6 @@ export default class MediaContainer extends React.Component {
           src={this.props.videoSrc}
           allowFullScreen
         />}
-        <figcaption id="caption">{this.props.data.title}</figcaption>
-        <p id="date">{this.props.data.date}</p>
       </figure>
     )
   }
