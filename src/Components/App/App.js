@@ -4,6 +4,7 @@ import { Routes, Route } from 'react-router-dom';
 
 import Header from '../Header/Header';
 import RandomPage from '../../Pages/RandomPage/RandomPage';
+import ByDatePage from '../../Pages/ByDatePage/ByDatePage';
 import AboutPage from '../../Pages/AboutPage/AboutPage';
 
 const apiKey = 'KHAQuppFd4IUa5bxBR2AMMi9mTqye3iqlWHkTpeu';
@@ -63,7 +64,7 @@ class App extends React.Component {
     fetch(url)
       .then(response => response.json())
       .then(jsonResponse => {
-        const data = jsonResponse[0];
+        const data = jsonResponse;
         if (data.media_type === 'video') {
           this.setState({imgSrc: '', videoSrc: data.url, data: data});
         } else if (data.media_type === 'image') {
@@ -73,7 +74,7 @@ class App extends React.Component {
           document.getElementById('media-container').innerHTML = 'Media unavailable. Click "More Info" for permalink to this date\'s APOD page.';
           this.setState({data: data})
         }
-      })
+      }).then(() => this.setState({info: false}))
   }
 
   toggleInfo() {
@@ -108,6 +109,17 @@ class App extends React.Component {
         <Routes>
           <Route path="/Random-Astronomy-Photo/" element={randomPage} />
           <Route path="/Random-Astronomy-Photo/random" element={randomPage} />
+          <Route path="/Random-Astronomy-Photo/by-date" element={
+            <ByDatePage 
+              getByDate={this.getByDate}
+              toggleInfo={this.toggleInfo}
+              reset={this.reset}
+              info={this.state.info}
+              imgSrc={this.state.imgSrc}
+              videoSrc={this.state.videoSrc}
+              data={this.state.data}
+            />
+          } />
           <Route path="/Random-Astronomy-Photo/about" element={<AboutPage />} />
         </Routes>
         <footer></footer>

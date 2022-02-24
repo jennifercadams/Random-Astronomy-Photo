@@ -4,7 +4,7 @@ import InfoBox from "../../Components/InfoBox/InfoBox";
 import MediaContainer from "../../Components/MediaContainer/MediaContainer";
 import Buttons from "../../Components/Buttons/Buttons";
 
-export default class RandomPage extends React.Component {
+export default class ByDatePage extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -13,20 +13,20 @@ export default class RandomPage extends React.Component {
     return (
       <main>
         <Buttons
-          page='random'
-          getRandom={this.props.getRandom}
+          page='byDate'
+          getByDate={this.props.getByDate}
           toggleInfo={this.props.toggleInfo}
           info={this.props.info}        
         />
         <InfoBox
-          page='random'
+          page='byDate'
           toggleInfo={this.props.toggleInfo}
           info={this.props.info}
           imgSrc={this.props.imgSrc}
           data={this.props.data}
         />
         <MediaContainer
-          page='random'
+          page='byDate'
           toggleInfo={this.props.toggleInfo}
           imgSrc={this.props.imgSrc}
           videoSrc={this.props.videoSrc}
@@ -34,10 +34,6 @@ export default class RandomPage extends React.Component {
         />
       </main>
     )
-  }
-
-  componentDidMount() {
-    this.props.getRandom();
   }
 
   componentWillUnmount() {

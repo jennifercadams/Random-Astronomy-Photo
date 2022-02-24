@@ -35,18 +35,27 @@ figure {
   grid-area: main;
 }
 
+#media-container-byDate {
+  height: calc(100vh - 218px);
+}
+
 #photo {
   margin-bottom: 10px;
   max-width: 100%;
   max-height: calc(100% - 66px);
 }
 
-#video {
+.video {
   width: calc((100vh - 236px) * 16 / 9);
   height: calc(100vh - 236px);
 }
 
-#info-box {
+#video-byDate {
+  width: calc((100vh - 275px) * 16 / 9);
+  height: calc(100vh - 275px);
+}
+
+.info-box {
   padding: 30px;
   margin: 18px 15%;
   width: 70%;
@@ -57,6 +66,10 @@ figure {
   border-radius: 10px;
   grid-area: main;
   z-index: 1;
+}
+
+#info-byDate {
+  min-height: calc(100vh - 218px);
 }
 
 #info-box p {
