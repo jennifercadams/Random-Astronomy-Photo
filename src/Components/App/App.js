@@ -44,6 +44,16 @@ class App extends React.Component {
     }
   }
 
+  reset() {
+    this.setState({
+      info: false,
+      imgSrc: '',
+      videoSrc: '',
+      data: { date: '', title: '', explanation: '', url: '' },
+      retries: 0
+    })
+  }
+
   getRandom() {
     this.reset();
     fetch(fetchRandom)
@@ -80,16 +90,6 @@ class App extends React.Component {
 
   toggleInfo() {
     this.setState(state => ({info: !state.info}))
-  }
-
-  reset() {
-    this.setState({
-      info: false,
-      imgSrc: '',
-      videoSrc: '',
-      data: { date: '', title: '', explanation: '', url: '' },
-      retries: 0
-    })
   }
 
   render() {
