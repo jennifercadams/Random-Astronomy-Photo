@@ -1,3 +1,4 @@
+import './AboutPage.css';
 import React from "react";
 
 export default class AboutPage extends React.Component {

@@ -1,0 +1,39 @@
+figure {
+  line-height: 1em;
+  margin: 20px 40px;
+  height: calc(100vh - 185px);
+  grid-area: main;
+}
+
+#media-container-byDate {
+  height: calc(100vh - 218px);
+}
+
+#photo {
+  margin-bottom: 10px;
+  max-width: 100%;
+  max-height: calc(100% - 66px);
+}
+
+.video {
+  width: calc((100vh - 241px) * 16 / 9);
+  height: calc(100vh - 241px);
+}
+
+#video-byDate {
+  width: calc((100vh - 275px) * 16 / 9);
+  height: calc(100vh - 275px);
+}
+
+@media (max-height: 690px) {
+  #photo {
+    max-height: calc(100% - 52px);
+  }
+}
+
+@media (orientation: portrait) {
+  .video, #video-byDate {
+    width: calc(100vw - 80px);
+    height: calc((100vw - 80px) / 16 * 9);
+  }
+}

@@ -22,82 +22,6 @@ main {
     "main";
 }
 
-#about-page {
-  max-width: 900px;
-  text-align: left;
-  margin: 20px 40px;
-}
-
-#about-page p {
-  padding-left: 10px;
-}
-
-#about-page ul {
-  padding-left: 50px;
-}
-
-#about-page cite {
-  padding-left: 30px;
-  margin-bottom: 10px;
-}
-
-figure {
-  line-height: 1em;
-  margin: 20px 40px;
-  height: calc(100vh - 185px);
-  grid-area: main;
-}
-
-#media-container-byDate {
-  height: calc(100vh - 218px);
-}
-
-#photo {
-  margin-bottom: 10px;
-  max-width: 100%;
-  max-height: calc(100% - 66px);
-}
-
-.video {
-  width: calc((100vh - 241px) * 16 / 9);
-  height: calc(100vh - 241px);
-}
-
-#video-byDate {
-  width: calc((100vh - 275px) * 16 / 9);
-  height: calc(100vh - 275px);
-}
-
-.info-box {
-  padding: 30px;
-  margin: 18px 15%;
-  width: 70%;
-  height: auto;
-  min-height: calc(100vh - 185px);
-  background-color: #000e24;
-  background-color: hsla(217, 100%, 7%, 0.95);
-  border-radius: 10px;
-  grid-area: main;
-  z-index: 1;
-}
-
-.info-box p {
-  line-height: 1.5em;
-}
-
-#info-byDate {
-  min-height: calc(100vh - 218px);
-}
-
-#description {
-  font-size: 16px;
-  line-height: 26px;
-}
-
-.text-body {
-  text-align: left;
-}
-
 footer {
   height: 30px;
 }
@@ -106,30 +30,8 @@ footer {
   body {
     font-size: 16px;
   }
-  #photo {
-    max-height: calc(100% - 52px);
-  }
+
   footer {
     height: 20px;
-  }
-}
-
-@media (max-width: 450px) {
-  #more-info-byDate {
-    display: block;
-    margin: 10px auto 0;
-  }
-}
-
-@media (orientation: portrait) {
-  .info-box {
-    padding: 20px;
-    margin: 18px 10%;
-    width: 80%;
-  }
-
-  .video, #video-byDate {
-    width: calc(100vw - 80px);
-    height: calc((100vw - 80px) / 16 * 9);
   }
 }

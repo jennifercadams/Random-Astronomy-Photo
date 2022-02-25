@@ -1,3 +1,4 @@
+import './InfoBox.css';
 import React from 'react';
 
 export default class InfoBox extends React.Component {

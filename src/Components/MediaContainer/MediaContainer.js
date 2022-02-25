@@ -1,3 +1,4 @@
+import './MediaContainer.css';
 import React from 'react';
 
 export default class MediaContainer extends React.Component {
