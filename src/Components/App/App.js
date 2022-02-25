@@ -6,6 +6,7 @@ import Header from '../Header/Header';
 import RandomPage from '../../Pages/RandomPage/RandomPage';
 import ByDatePage from '../../Pages/ByDatePage/ByDatePage';
 import AboutPage from '../../Pages/AboutPage/AboutPage';
+import HistoryPanel from '../HistoryPanel/HistoryPanel';
 
 const apiKey = 'KHAQuppFd4IUa5bxBR2AMMi9mTqye3iqlWHkTpeu';
 const fetchRandom = `https://api.nasa.gov/planetary/apod?count=1&thumbs=true&api_key=${apiKey}`;
@@ -39,6 +40,14 @@ class App extends React.Component {
   }
 
   addToHistory(state) {
+    const checkDuplicate = (current, history) => {
+      return history.some(thumb => {
+        return current.data.date === thumb.data.date;
+      })
+    }
+    if (checkDuplicate(state, state.history)) {
+      return;
+    }
     let thumbnail;
     if (state.data.media_type === 'video') {
       thumbnail = state.data.thumbnail_url;
@@ -93,14 +102,14 @@ class App extends React.Component {
   }
 
   getByDate(date) {
-    const url = fetchByDate + date;
+    this.addToHistory(this.state);
     this.reset();
+    const url = fetchByDate + date;
     fetch(url)
       .then(response => response.json())
       .then(jsonResponse => {
         const data = jsonResponse;
         this.setState({data: data});
-        this.addToHistory(data);
         if (data.media_type === 'video') {
           this.setState({imgSrc: '', videoSrc: data.url});
         } else if (data.media_type === 'image') {
@@ -156,6 +165,7 @@ class App extends React.Component {
           } />
           <Route path="/Random-Astronomy-Photo/about" element={<AboutPage />} />
         </Routes>
+        <HistoryPanel history={this.state.history} getFromHistory={this.getFromHistory} />
         <footer></footer>
       </div>
     );
