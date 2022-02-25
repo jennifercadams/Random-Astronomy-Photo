@@ -1,6 +1,6 @@
 figure {
   line-height: 1em;
-  margin: 20px 40px;
+  margin: 20px 40px 30px;
   height: calc(100vh - 185px);
   grid-area: main;
 }

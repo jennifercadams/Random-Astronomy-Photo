@@ -3,6 +3,7 @@ import React from "react";
 import InfoBox from "../../Components/InfoBox/InfoBox";
 import MediaContainer from "../../Components/MediaContainer/MediaContainer";
 import Buttons from "../../Components/Buttons/Buttons";
+import HistoryPanel from "../../Components/HistoryPanel/HistoryPanel";
 
 export default class ByDatePage extends React.Component {
   constructor(props) {
@@ -41,6 +42,7 @@ export default class ByDatePage extends React.Component {
           videoSrc={this.props.videoSrc}
           data={this.props.data}
         />
+        <HistoryPanel history={this.props.history} getFromHistory={this.props.getFromHistory} />
       </main>
     )
   }

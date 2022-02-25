@@ -6,7 +6,6 @@ import Header from '../Header/Header';
 import RandomPage from '../../Pages/RandomPage/RandomPage';
 import ByDatePage from '../../Pages/ByDatePage/ByDatePage';
 import AboutPage from '../../Pages/AboutPage/AboutPage';
-import HistoryPanel from '../HistoryPanel/HistoryPanel';
 
 const apiKey = 'KHAQuppFd4IUa5bxBR2AMMi9mTqye3iqlWHkTpeu';
 const fetchRandom = `https://api.nasa.gov/planetary/apod?count=1&thumbs=true&api_key=${apiKey}`;
@@ -121,6 +120,7 @@ class App extends React.Component {
   }
 
   getFromHistory(target) {
+    this.addToHistory(this.state);
     this.reset();
     this.setState({
       info: false,
@@ -135,38 +135,27 @@ class App extends React.Component {
   }
 
   render() {
-    const randomPage = (
-      <RandomPage
-        getRandom={this.getRandom}
-        toggleInfo={this.toggleInfo}
-        reset={this.reset}
-        info={this.state.info}
-        imgSrc={this.state.imgSrc}
-        videoSrc={this.state.videoSrc}
-        data={this.state.data}
-      />
-    );
+    const sharedProps = {
+      toggleInfo: this.toggleInfo,
+      reset: this.reset,
+      info: this.state.info,
+      imgSrc: this.state.imgSrc,
+      videoSrc: this.state.videoSrc,
+      data: this.state.data,
+      history: this.state.history,
+      getFromHistory: this.getFromHistory
+    };
+    const randomPage = <RandomPage getRandom={this.getRandom} {...sharedProps} />;
+    const byDatePage = <ByDatePage getByDate={this.getByDate} {...sharedProps} />;
     return (
       <div className="App">
         <Header />
         <Routes>
-          <Route path="/Random-Astronomy-Photo/" element={randomPage} />
+          <Route path="/Random-Astronomy-Photo/" element={randomPage}/>
           <Route path="/Random-Astronomy-Photo/random" element={randomPage} />
-          <Route path="/Random-Astronomy-Photo/by-date" element={
-            <ByDatePage 
-              getByDate={this.getByDate}
-              toggleInfo={this.toggleInfo}
-              reset={this.reset}
-              info={this.state.info}
-              imgSrc={this.state.imgSrc}
-              videoSrc={this.state.videoSrc}
-              data={this.state.data}
-            />
-          } />
+          <Route path="/Random-Astronomy-Photo/by-date" element={byDatePage} />
           <Route path="/Random-Astronomy-Photo/about" element={<AboutPage />} />
         </Routes>
-        <HistoryPanel history={this.state.history} getFromHistory={this.getFromHistory} />
-        <footer></footer>
       </div>
     );
   }

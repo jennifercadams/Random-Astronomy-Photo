@@ -1,0 +1,46 @@
+#history {
+  padding: 20px;
+  background-color: #28004f;
+  box-shadow: 0 -2px 4px black;
+}
+
+#history a {
+  text-decoration: none;
+}
+
+#thumbs-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.thumbnail {
+  margin: 10px;
+  position: relative;
+}
+
+.thumbnail img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+}
+
+.thumbnail::after {
+  content: "View";
+  background-color: #acaccc;
+  color: black;
+  font-weight: bold;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 150px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  padding-top: 70px;
+  opacity: 0;
+}
+
+.thumbnail:hover::after {
+  opacity: 0.8;
+}
