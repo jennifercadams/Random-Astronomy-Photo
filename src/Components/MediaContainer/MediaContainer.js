@@ -18,7 +18,8 @@ export default class MediaContainer extends React.Component {
         />}
         <figcaption id="caption">{this.props.data.title}</figcaption>
         <p id="details">
-          {this.props.data.copyright && <span><strong>Copyright: </strong>{this.props.data.copyright}&ensp;|&ensp;</span>}
+          {this.props.data.copyright && <span><strong>Copyright: </strong>{this.props.data.copyright}</span>}
+          {this.props.data.copyright && <span id="divider-span">&ensp;|&ensp;</span>}
           <span><strong>APOD date: </strong>{this.props.data.date}</span>
         </p>
       </figure>

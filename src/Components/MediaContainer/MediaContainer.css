@@ -40,4 +40,13 @@ figure {
     width: calc(100vw - 80px);
     height: calc((100vw - 80px) / 16 * 9);
   }
+
+  span {
+    display: block;
+    line-height: 1.5em;
+  }
+
+  #divider-span {
+    display: none;
+  }
 }
