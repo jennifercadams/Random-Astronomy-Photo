@@ -1,15 +1,13 @@
-import './App.css';
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
+
+import './App.css';
+import { fetchByDate, fetchRandom } from '../../util/api';
 
 import Header from '../Header/Header';
 import RandomPage from '../../Pages/RandomPage/RandomPage';
 import ByDatePage from '../../Pages/ByDatePage/ByDatePage';
 import AboutPage from '../../Pages/AboutPage/AboutPage';
-
-const apiKey = 'KHAQuppFd4IUa5bxBR2AMMi9mTqye3iqlWHkTpeu';
-const fetchRandom = `https://api.nasa.gov/planetary/apod?count=1&thumbs=true&api_key=${apiKey}`;
-const fetchByDate = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}&thumbs=true&date=`;
 
 class App extends React.Component {
   constructor(props) {
