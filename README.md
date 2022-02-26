@@ -10,12 +10,12 @@ Improvements and features I have completed:
 
 * Implemented support for videos.
 * Added "get by date" page that allows the user to fetch APOD media by date.
+* Added a feature that stores previously fetched photos in a gallery at the bottom of the page.
 
 ## Next Steps
 
 Improvements and features I am working on:
 
-* Add a feature that stores previously fetched photos in a gallery at the bottom of the page, with prev and next buttons to scroll through them.
 * Redesign buttons to look more modern and visually appealing.
 * Handle "apod.nasa.gov refused to connect errors" with more helpful error message redirecting user to APOD page for that date.
 
