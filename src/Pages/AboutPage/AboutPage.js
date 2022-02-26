@@ -14,9 +14,9 @@ export default class AboutPage extends React.Component {
         <h2>About the Developer</h2>
         <p>Jennifer Adams is a Pittsburgh-based web developer with a passion for astronomy.</p>
         <ul>
-          <li>Portfolio</li>
-          <li>LinkedIn</li>
-          <li>GitHub</li>
+          {/*<li>Portfolio</li>*/}
+          <li><a href="https://www.linkedin.com/in/jenn-adams-a91a49196/" target="_blank">LinkedIn</a></li>
+          <li><a href="https://github.com/jennifercadams" target="_blank">GitHub</a></li>
         </ul>
       </main>
     )
