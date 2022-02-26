@@ -6,10 +6,11 @@ export default class Thumbnail extends React.Component {
   }
 
   render() {
+    const date = this.props.date;
     return (
-      <div className="thumbnail" onClick={() => this.props.getFromHistory(this.props.data)}>
-        <img src={this.props.thumbnail} alt={this.props.title} />
-        <p>{this.props.date}</p>
+      <div key={`div-${date}`} className="thumbnail" onClick={() => this.props.getFromHistory(this.props.data)}>
+        <img key={`img-${date}`} src={this.props.thumbnail} alt={this.props.title} />
+        <p key={`p-${date}`}>{date}</p>
       </div>
     )
   }

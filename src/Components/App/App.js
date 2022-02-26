@@ -57,8 +57,7 @@ class App extends React.Component {
       imgSrc: state.imgSrc,
       videoSrc: state.videoSrc,
       data: state.data,
-      thumbnail: thumbnail,
-      key: this.state.history.length + 1
+      thumbnail: thumbnail
     }]});
   }
 

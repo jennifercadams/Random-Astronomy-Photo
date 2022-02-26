@@ -9,8 +9,8 @@ export default class HistoryPanel extends React.Component {
   }
 
   render() {
-    const thumbnails = this.props.history.map(thumb => <a href="#"><Thumbnail 
-      key={thumb.key}
+    const thumbnails = this.props.history.map((thumb, i) => <a key={`a-${thumb.data.date}`} href="#"><Thumbnail 
+      key={`Thumbnail-${thumb.data.date}`}
       thumbnail={thumb.thumbnail}
       date={thumb.data.date}
       title={thumb.data.title}
