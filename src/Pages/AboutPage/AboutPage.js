@@ -6,7 +6,9 @@ export default class AboutPage extends React.Component {
     return (
       <main id="about-page">
         <h2>About This App</h2>
-        <p>Generate random astronomy photos from NASA! Data and images are from NASA's Astronomy Picture of the Day (APOD) website.</p>
+        <p>Generate random astronomy photos from NASA! Data and media are from NASA's Astronomy Picture of the Day (APOD) website.</p>
+        <p>Media with copyright listed were submitted to APOD by individuals or institutions and belong to their respective copyright owners. Media with no copyright listed are NASA images and are in the public domain.</p>
+        <p><a href="https://www.nasa.gov/multimedia/guidelines/index.html" target="_blank">See NASA's official media usage guidelines.</a></p>
         <h2>About APOD</h2>
         <p>"Discover the cosmos! Each day a different image or photograph of our fascinating universe is featured, along with a brief explanation written by a professional astronomer." </p>
         <cite>-- <a href="https://apod.nasa.gov/apod/astropix.html" target="_blank">Astronomy Picture of the Day</a></cite>

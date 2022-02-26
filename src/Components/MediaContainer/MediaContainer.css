@@ -25,6 +25,10 @@ figure {
   height: calc(100vh - 275px);
 }
 
+#details {
+  font-size: 14px;
+}
+
 @media (max-height: 690px) {
   #photo {
     max-height: calc(100% - 52px);

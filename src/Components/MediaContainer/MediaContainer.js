@@ -17,7 +17,10 @@ export default class MediaContainer extends React.Component {
           allowFullScreen
         />}
         <figcaption id="caption">{this.props.data.title}</figcaption>
-        <p id="date">{this.props.data.date}</p>
+        <p id="details">
+          {this.props.data.copyright && <span><strong>Copyright: </strong>{this.props.data.copyright}&ensp;|&ensp;</span>}
+          <span><strong>APOD date: </strong>{this.props.data.date}</span>
+        </p>
       </figure>
     )
   }
