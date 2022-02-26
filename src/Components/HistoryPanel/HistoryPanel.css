@@ -1,7 +1,7 @@
 #history {
   padding: 20px;
   background-color: #28004f;
-  box-shadow: 0 -2px 4px black;
+  box-shadow: 0 -2px 4px #130026;
 }
 
 #history a {
@@ -28,7 +28,7 @@
 .thumbnail::after {
   content: "View";
   background-color: #acaccc;
-  color: black;
+  color: #130026;
   font-weight: bold;
   position: absolute;
   top: 0;

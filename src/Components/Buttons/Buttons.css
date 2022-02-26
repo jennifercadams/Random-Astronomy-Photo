@@ -11,7 +11,7 @@ form {
   display: inline;
 }
 
-button, #submit {
+#buttons button, #submit {
   width: 120px;
   background-color: #e1e1f1;
   color: #131445;
@@ -24,6 +24,7 @@ button, #submit {
   border: none;
   box-shadow: 0 4px #acaccc;
   position: relative;
+  z-index: 1;
 }
 
 #date-input {
@@ -31,11 +32,11 @@ button, #submit {
   font-family: inherit;
 }
 
-button:hover, #submit:hover {
+#buttons button:hover, #submit:hover {
   background-color: white;
 }
 
-button:active, #submit:active {
+#buttons button:active, #submit:active {
   box-shadow: 0 2px #acaccc;
   top: 2px;
 }
