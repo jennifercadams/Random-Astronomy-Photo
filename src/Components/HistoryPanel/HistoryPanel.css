@@ -4,7 +4,7 @@
   box-shadow: 0 -2px 4px #130026;
 }
 
-#history a {
+#thumbs-container a {
   text-decoration: none;
 }
 
@@ -12,6 +12,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin: 20px 0;
 }
 
 .thumbnail {
@@ -43,4 +44,19 @@
 
 .thumbnail:hover::after {
   opacity: 0.8;
+}
+
+@media (max-width: 380px) {
+  #history {
+    padding: 20px 10px;
+  }
+
+  .thumbnail img {
+    width: 94px;
+    height: 94px;
+  }
+
+  .thumbnail::after {
+    display: none;
+  }
 }

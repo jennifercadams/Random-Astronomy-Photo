@@ -22,6 +22,7 @@ export default class HistoryPanel extends React.Component {
       <div id="history">
         <h2>My Astronomy Photos</h2>
         <div id="thumbs-container">{thumbnails}</div>
+        <p><a href="#">Return to Top</a></p>
       </div>
     )
   }

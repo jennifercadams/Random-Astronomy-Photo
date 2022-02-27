@@ -87,3 +87,9 @@ header li:hover, #close:hover {
 header a {
   text-decoration: none;
 }
+
+@media (max-width: 346px) {
+  h1 {
+    font-size: 18px;
+  }
+}
