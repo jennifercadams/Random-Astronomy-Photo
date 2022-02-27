@@ -31,8 +31,12 @@ figure {
 
 @media (max-height: 690px) {
   #photo {
-    max-height: calc(100% - 52px);
+    max-height: calc(100% - 78px);
   }
+}
+
+@media (max-width: 450px) {
+
 }
 
 @media (orientation: portrait) {

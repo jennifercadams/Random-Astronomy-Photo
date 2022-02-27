@@ -20,7 +20,7 @@ export default class Buttons extends React.Component {
 
   render() {
     return (
-      <div id="buttons">
+      <div className="buttons">
         {this.props.page === "random" && <button id="get-photo" onClick={this.props.getRandom}>New Photo</button>}
         {this.props.page === "byDate" && <>
           <p>Enter date between June 16, 1995 and today:</p>
