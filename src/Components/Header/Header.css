@@ -10,12 +10,12 @@ header {
 
 #hamburger {
   display: inline;
-  font-size: 22px;
+  font-size: 26px;
   color: #c8bbf2;
   background-color: transparent;
   border: none;
   padding: 0;
-  margin-right: 6px;
+  margin-right: 8px;
 }
 
 #close {
@@ -34,14 +34,10 @@ header {
 
 h1 {
   display: inline;
-  font-size: 22px;
+  font-size: 26px;
   font-weight: 500;
   text-align: left;
 }
-
-h1 a, h1 a:hover {
-  color: #c8bbf2;
-} 
 
 #nav {
   display: none;
@@ -86,10 +82,21 @@ header li:hover, #close:hover {
 
 header a {
   text-decoration: none;
+  color: #c8bbf2;
 }
 
-@media (max-width: 346px) {
+header a:hover, #hamburger:hover {
+  color: #f5f0fa;
+}
+
+@media (max-width: 400px) {
+  header {
+    display: flex;
+    align-items: center;
+  }
+
   h1 {
     font-size: 18px;
+    margin-top: 3px;
   }
 }
