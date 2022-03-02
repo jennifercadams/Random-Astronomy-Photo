@@ -23,7 +23,7 @@ export default class Header extends React.Component {
   render() {
     return (
       <header className="App-header">
-        {this.state.nav && <div id="overlay"></div>}
+        {this.state.nav && <div id="overlay" onClick={this.closeNav}></div>}
         <button id="hamburger" onClick={this.openNav}>&#9776;</button>
         <h1><Link to="/Random-Astronomy-Photo/">Random Astronomy Photo</Link></h1>
         <Nav nav={this.state.nav} closeNav={this.closeNav} />
