@@ -24,7 +24,7 @@ main {
 }
 
 footer {
-  height: 30px;
+  height: 60px;
 }
 
 @media (max-height: 690px) {
@@ -32,7 +32,4 @@ footer {
     font-size: 16px;
   }
 
-  footer {
-    height: 20px;
-  }
 }
