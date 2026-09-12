@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/Random-Astronomy-Photo/static/css/main.fc2fae11.css",
-    "main.js": "/Random-Astronomy-Photo/static/js/main.8f86fed5.js",
+    "main.css": "/Random-Astronomy-Photo/static/css/main.8168e9d5.css",
+    "main.js": "/Random-Astronomy-Photo/static/js/main.7dfe3304.js",
     "index.html": "/Random-Astronomy-Photo/index.html",
-    "main.fc2fae11.css.map": "/Random-Astronomy-Photo/static/css/main.fc2fae11.css.map",
-    "main.8f86fed5.js.map": "/Random-Astronomy-Photo/static/js/main.8f86fed5.js.map"
+    "main.8168e9d5.css.map": "/Random-Astronomy-Photo/static/css/main.8168e9d5.css.map",
+    "main.7dfe3304.js.map": "/Random-Astronomy-Photo/static/js/main.7dfe3304.js.map"
   },
   "entrypoints": [
-    "static/css/main.fc2fae11.css",
-    "static/js/main.8f86fed5.js"
+    "static/css/main.8168e9d5.css",
+    "static/js/main.7dfe3304.js"
   ]
 }
